@@ -24,5 +24,6 @@ def home(request):
         contacts = ContactInfo.objects.all()
         resume = Resume.objects.all()
         myphoto = MyPhoto.objects.all()
-        return render(request, 'resumeApp/home.html', {'projects':projects, 'contacts':contacts, 'resume':resume, 'myphoto':myphoto, 'error':error})
+        about = About.objects.all()
+        return render(request, 'resumeApp/home.html', {'about':about, 'projects':projects, 'contacts':contacts, 'resume':resume, 'myphoto':myphoto, 'error':error})
 

@@ -32,6 +32,7 @@ body{
     justify-content: center;
     background-color: black;
     color: white !important;
+    font-size: 1.8rem;
 }
 
 .c2{
@@ -51,4 +52,10 @@ footer div footer div div ul li a{
     line-height: 2.4rem;
 }
 
+.c3{
+    background: linear-gradient(93.51deg, rgb(124, 71, 235) 10.94%, rgb(233, 53, 161) 86.95%);
+    -webkit-background-clip: text;
+    color: white;
+    -webkit-text-fill-color: transparent;    
+}
 

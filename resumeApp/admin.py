@@ -8,5 +8,6 @@ admin.site.register(ContactInfo)
 admin.site.register(Resume)
 admin.site.register(MyPhoto)
 admin.site.register(Message)
+admin.site.register(About)
 
 

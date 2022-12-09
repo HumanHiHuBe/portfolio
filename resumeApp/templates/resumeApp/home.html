@@ -53,8 +53,10 @@
         <div class="card w-50 c2"  >
             {% for i in myphoto %}<img src="{{  i.selfImage.url }}" class="card-img-top" alt="Photo Of Pranav Vatsa">{% endfor %}
         </div>
-            <div class="card-body">
-              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique dolores atque, iure dolorum id at consequatur! Eum, animi porro. Temporibus praesentium autem eius nobis accusantium odit laudantium dolor tempora voluptates? Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="card-body c3">
+              {% for i in about %}
+              <p class="card-text">{{ i.about|safe }}</p>
+              {% endfor %}
             </div>
             
             </div>

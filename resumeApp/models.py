@@ -52,6 +52,12 @@ class Message(models.Model):
     def __str__(self):
         return self.senderName + "'s Message"
 
+
+class About(models.Model):
+    about = models.TextField(default="")
+    def __str__(self):
+        return self.about[:101]
+
     
 
 
