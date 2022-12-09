@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'resumeApp/home.css' %}">
+    <title>Know About Pranav Vatsa!</title>
+    <link rel="shortcut icon" href="{% static 'resumeApp/icon.svg' %}" type="image/x-icon">
+</head>
+
+
+<body>
+    <nav id="nav" class="navbar navbar-expand-sm navbar-expand-md navbar-expand-lg navbar-expand-xl navbar-expand-xxl navbar-again">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'resumeApp/2.png' %}" alt="Bootstrap" width="50" height="40"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#messageme">Message Me</a>
+                    </li>
+                    <li class="nav-item">
+                        {% for i in resume %}<a class="nav-link" href="{{  i.resume.url }}">Download Resume</a>{% endfor %}
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input id="i1" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit" id="b1">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <section id="about">
+      <h3 class="h3"> Hello! Welcome To My Digital Home. </h3>
+      <div class="card w-75 c1" >
+        <div class="card w-50 c2"  >
+            {% for i in myphoto %}<img src="{{  i.selfImage.url }}" class="card-img-top" alt="Photo Of Pranav Vatsa">{% endfor %}
+        </div>
+            <div class="card-body">
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique dolores atque, iure dolorum id at consequatur! Eum, animi porro. Temporibus praesentium autem eius nobis accusantium odit laudantium dolor tempora voluptates? Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            
+            </div>
+    </section>
+
+    <hr style="border: 1.5px solid black; padding:0; background-color:black;">
+
+
+    <section id="projects">
+      <h3 class="h3 text-center">My Projects!</h3>
+       
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          {% for i in projects %}
+          {% if forloop.first %}
+          {% else %}
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ forloop.counter0 }}" aria-label="Slide {{ forloop.counter0 }}"></button>
+          {% endif %}
+          {% endfor %}
+          </div>
+        <div class="carousel-inner">
+            {% for i in projects %}
+            {% if forloop.first %}
+          <div class="carousel-item active" data-bs-interval="1800">
+            <a href="{{ i.pUrl }}"><img src="{{  i.pImg.url }}" class="d-block w-100" alt="Project Image" height="500"></a>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>{{ i.pTitle }}</h5>
+              <p>{{ i.pDesc }}</p>
+            </div>
+          </div>
+          {% else %}
+          <div class="carousel-item" data-bs-interval="1800">
+            <a href="{{ i.pUrl }}"><img src="{{  i.pImg.url }}" class="d-block w-100" alt="Project Image" height="500"></a>
+            <div class="carousel-caption d-none d-md-block">
+                <h5>{{ i.pTitle }}</h5>
+              <p>{{ i.pDesc }}</p>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+
+        
+      <footer id="messageme">
+      <div class="container">
+        <footer class="py-5">
+          <div class="row">
+
+            <div id="linksId" class=" col-12 col-lg-4 div-center col-sm-8 offset-1">
+              <h5>Profile Links</h5>
+              <ul class="nav flex-column">
+                {% for i in contacts %}
+                {% if i.phone %}<li class="nav-item mb-2"><a href="tel:{{ i.phone }}" target="_blank" class="nav-link p-0"> {% if i.phoneImg %} <img src="{{i.phoneImg.url}}" alt="PhoneIcon" width="35"> {% else %} Call: +91 {{ i.phone }} {% endif %}</a></li>{% endif %}
+                {% if i.email %}<li class="nav-item mb-2"><a href="mailto: {{ i.email }}" target="_blank" class="nav-link p-0"> {% if i.emailImg %} <img src="{{i.emailImg.url}}" alt="EmailIcon" width="35"> {% else %} Email: {{ i.email }} {% endif %}</a></li>{% endif %}
+                {% if i.githubUrl %}<li class="nav-item mb-2"><a href="{{ i.githubUrl }}" target="_blank" class="nav-link p-0"> {% if i.githubUrlImg %} <img src="{{i.githubUrlImg.url}}" alt="GitHubIcon" width="35"> {% else %} GitHub {% endif %}</a></li>{% endif %}
+                {% if i.linkedInUrl %}<li class="nav-item mb-2"><a href="{{ i.linkedInUrl }}" target="_blank" class="nav-link p-0"> {% if i.linkedInUrlImg %} <img src="{{i.linkedInUrlImg.url}}" alt="LinkedInIcon" width="35"> {% else %} LinkedIn {% endif %}</a></li>{% endif %}
+                {% if i.hackerrankUrl %}<li class="nav-item mb-2"><a href="{{ i.hackerrankUrl }}" target="_blank" class="nav-link p-0"> {% if i.hackerrankUrlImg %} <img src="{{i.hackerrankUrlImg.url}}" alt="HackerRankIcon" width="35"> {% else %} HackerRank {% endif %}</a></li>{% endif %}
+                {% if i.leetcodeUrl %}<li class="nav-item mb-2"><a href="{{ i.leetcodeUrl }}" target="_blank" class="nav-link p-0"> {% if i.leetcodeUrlImg %} <img src="{{i.leetcodeUrlImg.url}}" alt="LeetcodeIcon" width="35"> {% else %} Leetcode {% endif %}</a></li>{% endif %}
+                {% if i.youtubeUrl %}<li class="nav-item mb-2"><a href="{{ i.youtubeUrl }}" target="_blank" class="nav-link p-0"> {% if i.youtubeUrlImg %} <img src="{{i.youtubeUrlImg.url}}" alt="YouTubeIcon" width="35"> {% else %} YouTube {% endif %}</a></li>{% endif %}
+                {% if i.link1 %}<li class="nav-item mb-2"><a href="{{ i.link1 }}" target="_blank" class="nav-link p-0"> {% if i.link1Img %} <img src="{{i.link1Img.url}}" alt="Link1Icon" width="35"> {% else %} {{ i.name1 }} {% endif %} </a></li> {% endif %}
+                {% if i.link2 %}<li class="nav-item mb-2"><a href="{{ i.link2 }}" target="_blank" class="nav-link p-0"> {% if i.link2Img %} <img src="{{i.link2Img.url}}" alt="Link2Icon" width="35"> {% else %} {{ i.name2 }} {% endif %} </a></li> {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+    
+      
+            <div class="col-10 col-lg-6 offset-1">
+              <form action="{% url 'home' %}" method="post">
+                {% csrf_token %}
+                <h5>Have something to share with me?</h5>
+                <p>Feel free to connect.</p>
+                {% if error %}
+                <p>{{ error }}</p>
+                {% endif %}
+                <div class="d-flex w-100 gap-2">
+                  <label for="newsletter1" class="visually-hidden">Name</label>
+                  <input id="newsletter1" type="text" name="senderName" class="form-control" placeholder="Name" required>
+                </div>
+                <br>
+                <div class="d-flex w-100 gap-2">
+                  <label for="newsletter1" class="visually-hidden">Email address</label>
+                  <input id="newsletter1" type="email" name="senderEmail" class="form-control" placeholder="Email address">
+                </div>
+                <br>
+                <div class="d-flex w-100 gap-2">
+                  <label for="newsletter1" class="visually-hidden">Message</label>
+                  <input id="newsletter1" type="text" name="theMessage" class="form-control" placeholder="Message" required>
+                </div>
+                <br>
+                <div class="d-flex w-100 gap-2">
+                  <button class="btn btn-primary" type="submit">Send</button>
+                </div>
+              </form>
+            </div>
+          </div>
+      
+          <div class="d-flex justify-content-between py-4 my-4 border-top">
+            <p>Last Corner of My Home, See You!</p>
+            
+          </div>
+        </footer>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"crossorigin="anonymous"></script>
+    <script src="{% static 'resumeApp/home.js' %}"></script>
+</body>
+</html>
