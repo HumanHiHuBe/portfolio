@@ -37,8 +37,8 @@
                         {% for i in resume %}<a class="nav-link" href="{{  i.resume.url }}">Download Resume</a>{% endfor %}
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input id="i1" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" role="search" method="get" id="nav-form">
+                    <input id="i1" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" oninput="f1(this.id);">
                     <button class="btn btn-outline-success" type="submit" id="b1">Search</button>
                 </form>
             </div>
@@ -48,7 +48,9 @@
 
 
     <section id="about">
-      <h3 class="h3"> Hello! Welcome To My Digital Home. </h3>
+      <div class="typewriter">
+        <h1>Hello! Welcome To My Digital Home.</h1>
+      </div>
       <div class="card w-75 c1" >
         <div class="card w-50 c2"  >
             {% for i in myphoto %}<img src="{{  i.selfImage.url }}" class="card-img-top" alt="Photo Of Pranav Vatsa">{% endfor %}
@@ -119,10 +121,10 @@
 
             <div id="linksId" class=" col-12 col-lg-4 div-center col-sm-8 offset-1">
               <h5>Profile Links</h5>
-              <ul class="nav flex-column">
+              <ul class="nav flex-column" id="ulfhg" >
                 {% for i in contacts %}
-                {% if i.phone %}<li class="nav-item mb-2"><a href="tel:{{ i.phone }}" target="_blank" class="nav-link p-0"> {% if i.phoneImg %} <img src="{{i.phoneImg.url}}" alt="PhoneIcon" width="35"> {% else %} Call: +91 {{ i.phone }} {% endif %}</a></li>{% endif %}
-                {% if i.email %}<li class="nav-item mb-2"><a href="mailto: {{ i.email }}" target="_blank" class="nav-link p-0"> {% if i.emailImg %} <img src="{{i.emailImg.url}}" alt="EmailIcon" width="35"> {% else %} Email: {{ i.email }} {% endif %}</a></li>{% endif %}
+                {% if i.phone %}<li class="nav-item mb-2"><a href="tel:{{ i.phone }}" class="nav-link p-0"> {% if i.phoneImg %} <img src="{{i.phoneImg.url}}" alt="PhoneIcon" width="35"> {% else %} Call: +91 {{ i.phone }} {% endif %}</a></li>{% endif %}
+                {% if i.email %}<li class="nav-item mb-2"><a href="mailto: {{ i.email }}" class="nav-link p-0"> {% if i.emailImg %} <img src="{{i.emailImg.url}}" alt="EmailIcon" width="35"> {% else %} Email: {{ i.email }} {% endif %}</a></li>{% endif %}
                 {% if i.githubUrl %}<li class="nav-item mb-2"><a href="{{ i.githubUrl }}" target="_blank" class="nav-link p-0"> {% if i.githubUrlImg %} <img src="{{i.githubUrlImg.url}}" alt="GitHubIcon" width="35"> {% else %} GitHub {% endif %}</a></li>{% endif %}
                 {% if i.linkedInUrl %}<li class="nav-item mb-2"><a href="{{ i.linkedInUrl }}" target="_blank" class="nav-link p-0"> {% if i.linkedInUrlImg %} <img src="{{i.linkedInUrlImg.url}}" alt="LinkedInIcon" width="35"> {% else %} LinkedIn {% endif %}</a></li>{% endif %}
                 {% if i.hackerrankUrl %}<li class="nav-item mb-2"><a href="{{ i.hackerrankUrl }}" target="_blank" class="nav-link p-0"> {% if i.hackerrankUrlImg %} <img src="{{i.hackerrankUrlImg.url}}" alt="HackerRankIcon" width="35"> {% else %} HackerRank {% endif %}</a></li>{% endif %}
@@ -167,11 +169,17 @@
       
           <div class="d-flex justify-content-between py-4 my-4 border-top">
             <p>Last Corner of My Home, See You!</p>
-            
+            <ul class="list-unstyled d-flex">
+              <li class="ms-3"><a class="link-dark" href="#nav"><img id="fihg" title="Scroll Up" class="img-fluid" src="{% static 'resumeApp/upArrow.svg' %}" alt="ScrollUp"></a></li>
+            </ul>    
           </div>
+
         </footer>
       </div>
     </footer>
+
+    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"crossorigin="anonymous"></script>
     <script src="{% static 'resumeApp/home.js' %}"></script>
 </body>

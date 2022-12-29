@@ -1,31 +1,71 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
 }
 
-body{
-    background:linear-gradient(to right,  rgba(128, 0, 128, 0.6), purple, rgba(128, 0, 128, 0.6));
-}
-/* nav bar button hover issue */
-#b1{
-    color: black !important;
-    background-color: rgb(255, 255, 3);
+body {
+    background: linear-gradient(to right, rgba(128, 0, 128, 0.6), purple, rgba(128, 0, 128, 0.6));
 }
 
-#b1:hover{
-    background-color: transparent !important;
+.typewriter h1 { 
+    font-size: 1.2rem;
+    white-space: nowrap;
+    text-align: center;
+}
+@media screen and (min-width: 600px) {
+
+
+    .typewriter h1 {
+        font-size: 2rem;
+        overflow: hidden; 
+        border-right: .15em solid white; 
+        white-space: nowrap; 
+        margin: 0 auto; 
+        letter-spacing: .15em; 
+        animation: 
+          typing 9s steps(30, end) infinite,
+          blink .5s step-end infinite;
+      }
+      
+      /* The typing effect */
+      @keyframes typing {
+        0% { width: 0 }
+        50% { width: 100% }
+        100% { width: 0% }
+
+      }
+      
+      /* The typewriter cursor effect */
+      @keyframes blink {
+        from, to { border-color: transparent }
+        50% { border-color: white; }
+      }
+    
+}
+
+  
+
+/* nav bar button hover issue */
+#b1 {
+    color: white !important;
+    background-color: #605dff !important;
+}
+
+#b1:hover {
+    background-color: #4f4cff9a !important;
     color: white !important;
 }
+
 /* card photo issue */
-#about{
+#about {
     margin-top: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;  
+    justify-content: center;
 }
 
-.c1{
+.c1 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,27 +75,43 @@ body{
     font-size: 1.8rem;
 }
 
-.c2{
+.c2 {
     background-color: black;
 }
 
-footer{
+footer {
     background-color: grey;
     color: white;
 }
 
-footer div footer div div ul li a{
+footer div footer div div ul li a {
     color: white !important;
 }
 
-#linksId{
+#linksId {
     line-height: 2.4rem;
 }
 
-.c3{
+.c3 {
     background: linear-gradient(93.51deg, rgb(124, 71, 235) 10.94%, rgb(233, 53, 161) 86.95%);
     -webkit-background-clip: text;
     color: white;
-    -webkit-text-fill-color: transparent;    
+    -webkit-text-fill-color: transparent;
 }
 
+@media screen and (min-width: 600px) {
+    #sp1{
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    #fihg {
+        width: 70%;
+    }
+
+}
