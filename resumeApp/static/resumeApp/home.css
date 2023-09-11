@@ -14,14 +14,17 @@ body {
 }
 @media screen and (min-width: 600px) {
 
-
+    .typewriter{
+        margin-bottom: 5rem;
+    }
     .typewriter h1 {
         font-size: 2rem;
         overflow: hidden; 
         border-right: .15em solid white; 
         white-space: nowrap; 
         margin: 0 auto; 
-        letter-spacing: .15em; 
+        letter-spacing: .40em; 
+        word-spacing: .45em;
         animation: 
           typing 9s steps(30, end) infinite,
           blink .5s step-end infinite;
@@ -41,6 +44,36 @@ body {
         50% { border-color: white; }
       }
     
+}
+
+@media screen and (max-width: 600px) {
+    .typewriter h1 {
+        font-size: 0.9rem;
+        overflow: hidden; 
+        border-right: .15em solid white; 
+        white-space: nowrap; 
+        margin: 0 auto;
+        margin-top: -50px; 
+        letter-spacing: .08em; 
+        animation: 
+          typing 9s steps(30, end) infinite,
+          blink .5s step-end infinite;
+      }
+
+      /* The typing effect */
+      @keyframes typing {
+        0% { width: 0 }
+        50% { width: 100% }
+        100% { width: 0% }
+
+      }
+      
+      /* The typewriter cursor effect */
+      @keyframes blink {
+        from, to { border-color: transparent }
+        50% { border-color: white; }
+      }
+
 }
 
   
@@ -79,6 +112,17 @@ body {
     background-color: black;
 }
 
+@media screen and (max-width: 600px) {
+    #about .c3 {
+        font-size: .8rem !important;
+        margin-top: 5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
 footer {
     background-color: grey;
     color: white;
@@ -113,5 +157,10 @@ footer div footer div div ul li a {
     #fihg {
         width: 70%;
     }
+    #ulfhg{
+        
+    }
 
 }
+
+
