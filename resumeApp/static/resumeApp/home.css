@@ -163,4 +163,13 @@ footer div footer div div ul li a {
 
 }
 
+/* For emoji */
+#emt{
+    background: black;
+    -webkit-background-clip: none;
+    color: white;
+    -webkit-text-fill-color: white;
+    border-radius: 50%;  
+}
+
 
